@@ -601,4 +601,20 @@ public class UtilsShared extends UserUtils {
 	}
 
 
+	@category("Temp")
+	@out(name = "res", type = "String", desc = "")
+	public String getTemp2() throws Exception {
+		// test 1
+		return "another data";
+	}
+
+
+	@category("Temp")
+	@out(name = "res", type = "String", desc = "")
+	public String getTemp1() throws Exception {
+		// test 1
+		return "another data";
+	}
+
+
 }
