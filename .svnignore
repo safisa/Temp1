@@ -9,3 +9,6 @@ ludb.json
 ludb.zip
 ludbXMLs.zip
 *.xml.tmp
+out
+.idea
+*.iml

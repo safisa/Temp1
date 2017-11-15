@@ -1,39 +1,51 @@
 ﻿/////////////////////////////////////////////////////////////////////////
-// Utils - Auto generated file (contains all LU functions and Globals)
+// Utils - Project Functions and Globals
 /////////////////////////////////////////////////////////////////////////
-	
-package com.k2view.cdbms.#luName#;
+
+package com.k2view.cdbms.lu.#luName#;
 
 import java.util.*;
 import java.sql.*;
 import java.math.*;
 import java.io.*;
+
 import com.k2view.cdbms.shared.*;
 import com.k2view.cdbms.sync.*;
 import com.k2view.cdbms.lut.*;
 import com.k2view.cdbms.shared.logging.LogEntry.*;
 import com.k2view.cdbms.func.oracle.OracleToDate;
 import com.k2view.cdbms.func.oracle.OracleRownum;
+import com.k2view.cdbms.usershared.UserCodeDescribe.*;
+import com.k2view.cdbms.usershared.*;
 
-public class Utils extends UserUtils {
+import static com.k2view.cdbms.usershared.UserCodeDescribe.FunctionType.*;
 
-	public Utils(LUType luType,ExecutionContext context) throws ClassNotFoundException, SQLException {
-		super(luType,context);
+public class Utils extends UtilsShared {
+
+	#globals#
+	#each#
+	@desc("!COMMENT!")
+	@category("!CATEGORY!")
+	public static final String !NAME! = "!VALUE!";
+	#end#
+
+
+    public Utils(LUType luType, ExecutionContext context) throws ClassNotFoundException, SQLException {
+        super(luType, context);
         LUDBBase ludb = getLudb();
-        if(ludb != null) {
-            if(ludb.getConnection() != null) {
+        if (ludb != null) {
+            if (ludb.getConnection() != null) {
                 initSqliteUDFs(ludb.getConnection());
             }
-        }		
-	}
-	
-	////////////////////////////////////////////
-	// Register as LUDB functions (Sqlite UDFs)
-	////////////////////////////////////////////
-	public void initSqliteUDFs(Connection conn) 
-		throws ClassNotFoundException, SQLException
-	{
-		Class.forName("org.sqlite.JDBC");
+        }
+    }
+
+    ////////////////////////////////////////////
+    // Register as LUDB functions (Sqlite UDFs)
+    ////////////////////////////////////////////
+    protected void initSqliteUDFs(Connection conn)
+            throws ClassNotFoundException, SQLException {
+        Class.forName("org.sqlite.JDBC");
 
 		#methodsSqliteUDF#
 		#each#
@@ -50,22 +62,22 @@ public class Utils extends UserUtils {
 		});
 
 		#end#
-	}
-	
+    }
 
 
 	#methods#
 	#each#
-	/* !COMMENT! */
+	@desc("!COMMENT!")
+	@category("!CATEGORY!")
+	@type(!FUNCTION_TYPE!)
+	#each_output#
+	@out(name = "!OUTPUT_NAME!", type = "!OUTPUT_TYPE!", desc = "!OUTPUT_COMMENT!")
+	#end_output#
 	public !RETRUN_TYPE! !NAME!(!ARGS!) throws Exception {
 !BODY!
 	}
 	#end#
 
 
-	#globals#
-	#each#
-	/* !COMMENT! */
-	public static final String !NAME! = "!VALUE!";
-	#end#
+	
 }

@@ -9,3 +9,7 @@ ludb.json
 ludb.zip
 ludbXMLs.zip
 *.xml.tmp
+out
+.idea
+Implementation/SharedObjects/Java/*.iml
+Implementation/LogicalUnits/*/Java/*.iml

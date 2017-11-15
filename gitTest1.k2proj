@@ -3,8 +3,9 @@
   <Name>gitTest1</Name>
   <CreateDate>2017-08-21T17:21:55.4751727+03:00</CreateDate>
   <CreateUserId />
-  <ProductVersion>3.3.0.11</ProductVersion>
+  <ProductVersion>3.5.0.0</ProductVersion>
   <UseTableObject>true</UseTableObject>
+  <MoveDiagramBinFilesToXml>true</MoveDiagramBinFilesToXml>
   <ProjectItemPropList />
   <ProjectItemsCategoryList />
   <Description />
